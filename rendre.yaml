@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: kouame-prediction-bot
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python app.py
+    envVars:
+      - key: BOT_TOKEN
+        fromPlan: true
+      - key: ADMIN_ID
+        fromPlan: true
+      - key: API_ID
+        fromPlan: true
+      - key: API_HASH
+        fromPlan: true
+    envVarSecrets:
+      - key: PORT
+        value: 10000
